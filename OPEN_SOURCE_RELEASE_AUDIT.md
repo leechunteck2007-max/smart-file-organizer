@@ -4,13 +4,13 @@ Target: **Smart File Organizer v0.2.0-alpha**, Windows x64.
 
 **Ready for public release: YES — local pre-publication gates passed.**
 
-GitHub publication, remote Actions execution and public download verification remain delivery steps. The alpha release must wait for remote workflow validation; no automatic publisher is configured.
+GitHub publication, remote Actions execution and public download verification are complete. The alpha pre-release was published after workflow validation. No automatic publisher is configured.
 
-No repository, commit or release has been pushed publicly during preparation.
+At the pre-publish checkpoint, no repository, commit or release had been pushed publicly. The local audit passed before GitHub creation. Publication verification is recorded below.
 
 ## Repository and history
 
-The original workspace has no commits or remotes, but local development snapshot refs include generated reports/logs with private machine context. Deleting their working copies would not sanitize those refs. Original metadata is preserved. A separate public export contains **107 audited files**, a clean initial commit and only `refs/heads/main`; no private refs or development history are inherited. Staged-source scan and Git diff checks pass. Only this clean branch and intended release tag may be pushed.
+The original workspace has no commits or remotes, but local development snapshot refs include generated reports/logs with private machine context. Deleting their working copies would not sanitize those refs. Original metadata is preserved. A separate public export contains **107 audited files**, a clean initial history and only the intended main branch/alpha tag; no private refs or development history are inherited. Staged-source scan and Git diff checks pass. A focused documentation follow-up records completed publication verification.
 
 The intended public content preserves the existing Electron/React/TypeScript desktop and Python V2 engine. Legacy engine modules remain for regression coverage. Source, fixture generators, tests, pinned dependencies and build configuration are included; environments, caches, executables, databases, reports, test outputs and personal documents are excluded.
 
@@ -33,7 +33,7 @@ Owner selected **MIT**. Full LICENSE and LICENSE_RECOMMENDATION.md are present. 
 
 README, architecture/safety/privacy guides, contribution/security/conduct policies, roadmap, changelog, current limitations, release notes and maintainer release checklist are prepared. Bug/feature forms and PR template include privacy warnings and safety impact.
 
-Windows CI runs source/privacy/metadata checks, all regression and critical safety tests, TypeScript/Vite builds and desktop integration. Official Actions are pinned to verified commit SHAs. Both workflows pass actionlint. Release build runs on manual dispatch or `v0.2.0-alpha` and retains a package artifact; it has no release publication permission or step. Remote execution can be verified only after repository publication.
+Windows CI runs source/privacy/metadata checks, all regression and critical safety tests, TypeScript/Vite builds and desktop integration. Official Actions are pinned to verified commit SHAs. Both workflows pass actionlint and have passed remote execution. Release build runs on manual dispatch or `v0.2.0-alpha` and retains a package artifact; it has no release publication permission or step.
 
 ## Validation and artifact
 
@@ -47,8 +47,20 @@ Packaged engine, PDF parser, DOCX generation and actual Electron UI checks pass 
 
 ## Remaining limitations
 
-Classification can be wrong, extraction/scan/display budgets apply, and Undo can be partial after external changes/collisions. Unsigned package. Independent second-PC and physical external-drive acceptance remain pending and are disclosed in KNOWN_ISSUES.md. These are alpha limitations rather than claims of completed acceptance.
+Classification can be wrong, extraction/scan/display budgets apply, and Undo can be partial after external changes/collisions. Unsigned package. Independent GitHub-hosted Windows VM checks now pass; a second physical end-user PC and physical external-drive acceptance remain pending and are disclosed in KNOWN_ISSUES.md. These are alpha limitations rather than claims of completed hardware acceptance.
 
 ## Publication gate
 
-Recommended visibility: **public**. Name: `smart-file-organizer`. Local artifact and staged-source/history gates pass. Existing saved GitHub access was verified for the connected owner; authenticated target inspection returned no existing repository, so no unrelated project will be overwritten. No credentials are persisted in release source or package. Remote CI, README, screenshots, license and download verification remain publication steps.
+Visibility: **public**. Name: `smart-file-organizer`. Local artifact and staged-source/history gates pass. Existing saved GitHub access was verified for the connected owner; authenticated target inspection returned no existing repository, so no unrelated project was overwritten. No credentials are persisted in release source or package. Remote CI, README, screenshots, license and download verification pass.
+
+## Publication verification
+
+- [Public repository](https://github.com/leechunteck2007-max/smart-file-organizer) exists with `main` as its default branch and the intended description/topics. Only the clean source branch and intended alpha tag were published.
+- GitHub renders the README; all five screenshot URLs return HTTP 200 with image/png. A fresh public clone passes the 107-file source/privacy/version audit. Issue/PR templates are present; GitHub recognizes MIT. Private vulnerability reporting is enabled.
+- [Windows CI](https://github.com/leechunteck2007-max/smart-file-organizer/actions/runs/35196637921) passed source audit, all 110 tests, TypeScript/frontend build and desktop workflow/Undo. The suite ran on an independent hosted Windows VM.
+- [Full Windows release build](https://github.com/leechunteck2007-max/smart-file-organizer/actions/runs/35196770883) passed full validation, frozen PDF/DOCX/UI checks without Python/Node on PATH, ZIP/manifest checks and artifact retention. This workflow was validated before initiating release publication; it does not auto-publish releases.
+- `v0.2.0-alpha` points to the validated initial source. Its [tag CI](https://github.com/leechunteck2007-max/smart-file-organizer/actions/runs/35197257067) and [tag package build](https://github.com/leechunteck2007-max/smart-file-organizer/actions/runs/35197257065) also passed.
+- [Alpha release](https://github.com/leechunteck2007-max/smart-file-organizer/releases/tag/v0.2.0-alpha) is published as a **pre-release**, not a draft or stable release. The tested ZIP and SHA256SUMS.txt are uploaded. GitHub's asset digest matches the recorded tested SHA-256.
+- Both assets downloaded successfully without authentication. Downloaded ZIP size and SHA-256 exactly match the tested local build and published checksum. Source clone/build commands were validated locally and on hosted Windows. Release-note links use explicit public tag URLs.
+
+**Final result: READY for the public alpha.** Physical hardware/external-drive acceptance and classification/Undo limitations remain disclosed. No personal originals were reorganized and no private development refs/data were published.

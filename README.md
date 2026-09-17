@@ -12,6 +12,8 @@ A local-first Windows app that scans, classifies, renames and organizes scattere
 ![Alpha](https://img.shields.io/badge/version-0.2.0--alpha-orange)
 [![MIT license](https://img.shields.io/badge/license-MIT-green)](LICENSE)
 
+[Download Windows alpha](https://github.com/leechunteck2007-max/smart-file-organizer/releases/tag/v0.2.0-alpha) · [Read the safety notes](docs/SAFETY.md)
+
 ![Smart File Organizer home](docs/screenshots/home.png)
 
 </div>

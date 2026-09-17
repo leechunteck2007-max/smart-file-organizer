@@ -25,6 +25,6 @@ The Python suite covers path/project protection, no overwrite, SHA-256 evidence,
 
 ## Manual acceptance
 
-On an independent Windows x64 PC/VM without Python/Node, test disposable generated data: scan, rename, duplicates, report, collisions, locked files and Undo. Test physical external drives separately. Confirm projects remain unchanged. These independent checks are pending.
+Independent GitHub-hosted Windows VM CI and full packaging checks pass. On a second physical end-user PC without Python/Node, test disposable data: scan, rename, duplicates, report, collisions, locked files and Undo. Test physical external drives separately. Confirm projects remain unchanged. Physical-machine/drive acceptance remains pending.
 
 First organization of personal originals requires explicit tester consent and backups. Read-only discovery does not authorize moves.
