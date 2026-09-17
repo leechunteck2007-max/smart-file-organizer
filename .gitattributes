@@ -1,0 +1,12 @@
+* text=auto eol=lf
+*.py text eol=lf
+*.cjs text eol=lf
+*.tsx text eol=lf
+*.ts text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.md text eol=lf
+*.png binary
+*.ico binary
+# Retain upstream notices verbatim, including their heading/whitespace style.
+assets/licenses/* -whitespace conflict-marker-size=32

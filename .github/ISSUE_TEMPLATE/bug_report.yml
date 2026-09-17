@@ -1,0 +1,49 @@
+name: Bug report
+description: Report a problem using non-private synthetic examples
+title: "[Bug]: "
+body:
+  - type: markdown
+    attributes:
+      value: "Never upload private documents, sensitive filenames, databases or unsanitized reports/logs. Security/privacy vulnerabilities follow SECURITY.md."
+  - type: input
+    id: windows
+    attributes:
+      label: Windows version and architecture
+      placeholder: Windows 11 x64
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: App version
+      placeholder: 0.2.0-alpha
+    validations:
+      required: true
+  - type: textarea
+    id: happened
+    attributes:
+      label: What happened and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Synthetic reproduction steps
+      description: Use generated files and fictional paths. Describe storage type and relevant settings.
+    validations:
+      required: true
+  - type: dropdown
+    id: undo
+    attributes:
+      label: Did Undo work?
+      options:
+        - Not applicable
+        - Fully restored
+        - Partially restored
+        - Failed
+        - Not attempted
+  - type: textarea
+    id: diagnostics
+    attributes:
+      label: Sanitized diagnostics, if available
+      description: Remove identities, paths, filenames and document text before sharing.

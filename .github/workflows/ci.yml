@@ -1,0 +1,50 @@
+name: Windows checks
+on:
+  push:
+  pull_request:
+permissions:
+  contents: read
+jobs:
+  windows:
+    runs-on: windows-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@d23441a48e516b6c34aea4fa41551a30e30af803 # v6
+      - uses: actions/setup-python@ece7cb06caefa5fff74198d8649806c4678c61a1 # v6
+        with:
+          python-version: '3.13'
+          architecture: x64
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version: '24'
+          package-manager-cache: false
+      - name: Install pinned dependencies
+        shell: pwsh
+        run: |
+          python -m pip install --no-cache-dir -r requirements.txt -r requirements-build.txt
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          npm install --global pnpm@11.19.0
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          pnpm --dir frontend install --frozen-lockfile
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          node frontend/node_modules/electron/install.js
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Privacy, metadata and source checks
+        run: python scripts/release_check.py
+      - name: Full regression and critical safety suite
+        run: python -m unittest discover -s tests -v
+      - name: TypeScript and frontend build
+        working-directory: frontend
+        shell: pwsh
+        run: |
+          node --no-opt node_modules/typescript/bin/tsc --noEmit
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+          node --no-opt node_modules/vite/bin/vite.js build
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
+      - name: Synthetic desktop workflow and Undo
+        working-directory: frontend
+        shell: pwsh
+        run: |
+          $env:SMART_QA_PYTHON = (Get-Command python).Source
+          node --no-opt tests/desktop.cjs
+          if ($LASTEXITCODE) { exit $LASTEXITCODE }
